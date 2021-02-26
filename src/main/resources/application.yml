@@ -1,1 +1,8 @@
-
+app:
+  topic:
+    name: messages
+  group:
+    id: groupId
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092

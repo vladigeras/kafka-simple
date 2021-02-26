@@ -1,5 +1,7 @@
 package ru.vladigeras.kafkasimple;
 
+import java.util.TimeZone;
+import javax.annotation.PostConstruct;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -10,4 +12,8 @@ public class KafkaSimpleApplication {
         SpringApplication.run(KafkaSimpleApplication.class, args);
     }
 
+    @PostConstruct
+    public void setGlobalUtcDate() {
+        TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
+    }
 }
