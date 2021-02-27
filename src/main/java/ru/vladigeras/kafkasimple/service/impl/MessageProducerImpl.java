@@ -13,13 +13,13 @@ import ru.vladigeras.kafkasimple.service.MessageProducer;
 @RequiredArgsConstructor
 public class MessageProducerImpl implements MessageProducer {
 
-    private final KafkaTemplate<String, Message> kafkaTemplate;
+    private final KafkaTemplate<String, Object> kafkaTemplate;
     @Value("${app.topic.name}")
     private String topicName;
 
     @Override
     public void send(Message message) {
         log.info("Produce message - {}", message);
-        kafkaTemplate.send(topicName, message);
+        kafkaTemplate.send(topicName, message.getId(), message);
     }
 }

@@ -13,7 +13,7 @@ import ru.vladigeras.kafkasimple.service.MessageConsumer;
 public class MessageConsumerImpl implements MessageConsumer {
 
     @Override
-    @KafkaListener(topics = "${app.topic.name}", groupId = "${app.group.id}", containerFactory = "kafkaListenerContainerFactory")
+    @KafkaListener(topics = "${app.topic.name}", groupId = "${app.group.id}")
     public void get(Message message) {
         log.info("Consume message - {}", message);
     }
